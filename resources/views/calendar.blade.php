@@ -3,9 +3,9 @@
 <div class="container">
 
     <div class="row justify-content-center">
-        <a href="./?ym={{ $prev }}">&lt;</a>
+        <a href="/calendar/?ym={{ $prev }}">&lt;</a>
         <span class="month">{{ $month }}</span>
-        <a href="./?ym={{ $next }}">&gt;</a>
+        <a href="/calendar/?ym={{ $next }}">&gt;</a>
     </div>
 
     <div class="calendar">
