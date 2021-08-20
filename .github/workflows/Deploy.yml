@@ -12,8 +12,8 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
         env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER: ${{ secrets.FTP_BOOKING_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_BOOKING_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_BOOKING_PASSWORD }}
           LOCAL_DIR: ./
           REMOTE_DIR: /
