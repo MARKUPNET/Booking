@@ -8,7 +8,7 @@
     <p><a href="/calendar">予約カレンダー　≫</a></p>
     <p><a href="/admin/login">管理画面　≫</a></p>
 
-    <p>TEST8</p>
+    <p>TEST9</p>
 </div>
 
 @endsection
