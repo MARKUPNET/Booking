@@ -65,8 +65,18 @@ class BookingformController extends Controller
                 ->withInput($entry);
 
         } else {
+            //DBに保存
+            // $contact = new Contact;
+            // $contact->name = $entry->name;
+            // $contact->email = $entry->email;
+            // $contact->body = $entry->zip;
+            // $contact->save();
+
             //入力されたメールアドレスにメールを送信
             \Mail::to($entry['email'])->send(new BookingFormSendmail($entry));
+
+            //管理者メールアドレスにメールを送信
+            \Mail::to('webmaster@markupnet.jp')->send(new BookingFormSendmail($entry));
 
             //再送信を防ぐためにトークンを再発行
             $request->session()->regenerateToken();
