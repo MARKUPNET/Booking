@@ -15,5 +15,5 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_BOOKING_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_BOOKING_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_BOOKING_PASSWORD }}
-          LOCAL_DIR: ./
-          REMOTE_DIR: /
+          LOCAL_DIR: ./resources/
+          REMOTE_DIR: /resources/
