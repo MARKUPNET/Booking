@@ -27,12 +27,10 @@ Route::get('/admin/register', function(){
 
 
 // フロント画面
-Route::get('/', function () {
-    return view('top');
-});
-Route::get('/calendar', 'App\Http\Controllers\CalendarController@index');
-Route::get('/booking-form', 'App\Http\Controllers\BookingformController@index');
-Route::post('/booking-form/confirm', 'App\Http\Controllers\BookingformController@confirm');
-Route::post('/booking-form/thanks', 'App\Http\Controllers\BookingformController@thanks');
+Route::get('/', function () { return view('top'); })->name('home');
+Route::get('/calendar', 'App\Http\Controllers\CalendarController@index')->name('calendar.index');
+Route::get('/booking-form', 'App\Http\Controllers\BookingformController@index')->name('booking-form.index');
+Route::post('/booking-form/confirm', 'App\Http\Controllers\BookingformController@confirm')->name('booking-form.confirm');
+Route::post('/booking-form/thanks', 'App\Http\Controllers\BookingformController@send')->name('booking-form.send');
 
 
