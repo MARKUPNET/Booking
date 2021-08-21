@@ -4,8 +4,34 @@ on:
       - main
 name: Deploy
 jobs:
-  FTP-Deploy-Action:
+  FTP-Deploy-Action1:
     name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_BOOKING_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_BOOKING_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_BOOKING_PASSWORD }}
+          LOCAL_DIR: ./app/
+          REMOTE_DIR: /app/
+  FTP-Deploy-Action2:
+    name: FTP-Deploy-Action2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_BOOKING_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_BOOKING_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_BOOKING_PASSWORD }}
+          LOCAL_DIR: ./public/
+          REMOTE_DIR: /public/
+  FTP-Deploy-Action3:
+    name: FTP-Deploy-Action3
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -17,3 +43,16 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_BOOKING_PASSWORD }}
           LOCAL_DIR: ./resources/
           REMOTE_DIR: /resources/
+  FTP-Deploy-Action4:
+    name: FTP-Deploy-Action4
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_BOOKING_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_BOOKING_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_BOOKING_PASSWORD }}
+          LOCAL_DIR: ./routes/
+          REMOTE_DIR: /routes/
