@@ -30,9 +30,6 @@ Route::get('/admin/register', function(){
 Route::get('/', function () {
     return view('top');
 });
-Route::get('/test', function () {
-    return view('top');
-});
 Route::get('/calendar', 'App\Http\Controllers\CalendarController@index');
 Route::get('/booking-form', 'App\Http\Controllers\BookingformController@index');
 Route::post('/booking-form/confirm', 'App\Http\Controllers\BookingformController@confirm');

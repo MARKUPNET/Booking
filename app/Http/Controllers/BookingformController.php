@@ -28,7 +28,6 @@ class BookingformController extends Controller
 
     public function thanks(Request $request)
     {
-        $work = $request;
 
         return view('booking-form-thanks');
     }
