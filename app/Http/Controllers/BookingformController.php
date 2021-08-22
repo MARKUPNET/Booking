@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Requests;
 use App\Mail\BookingFormSendmail;
+use App\Models\BookingPost;
 
 class BookingformController extends Controller
 {
@@ -66,11 +67,36 @@ class BookingformController extends Controller
 
         } else {
             //DBに保存
-            // $contact = new Contact;
-            // $contact->name = $entry->name;
-            // $contact->email = $entry->email;
-            // $contact->body = $entry->zip;
-            // $contact->save();
+            $post = new BookingPost;
+            $post->date = $entry['date'];
+            $post->plan = $entry['plan'];
+
+            //guest
+            $guestArray = array(
+              'woman' => $entry['woman'],
+              'man' => $entry['man'],
+              'childwoman' => $entry['childwoman'],
+              'childman' => $entry['childman'],
+            );
+            $post->guest = serialize($guestArray);
+
+            //option
+            $optionArray = array(
+              'option1' => $entry['option1'],
+            );
+            $post->option = serialize($optionArray);
+
+            //customer
+            $customerArray = array(
+              'name' => $entry['name'],
+              'email' => $entry['email'],
+              'zip' => $entry['zip'],
+              'pref' => $entry['pref'],
+              'address' => $entry['address'],
+            );
+            $post->customer = serialize($customerArray);
+
+            $post->save();
 
             //入力されたメールアドレスにメールを送信
             \Mail::to($entry['email'])->send(new BookingFormSendmail($entry));

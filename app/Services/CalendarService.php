@@ -35,9 +35,11 @@ class CalendarService
                 $week .= '<td class="day-'.$ww.'"><span class="day">'.$day.'</span>';
             }
             //DATA
-            $week .= '<p>予約可</p>';
-            $week .= '<p>残り：10人</p>';
-            $week .= '<a href="/booking-form/?ymd='.$date.'">予約する</p>';
+            $week .= '<ul class="list-group mb-1">';
+            $week .= '<li class="list-group-item text-center">予約可</li>';
+            $week .= '<li class="list-group-item">残り：10人</li>';
+            $week .= '</ul>';
+            $week .= '<p class="text-center"><a href="/booking-form/?ymd='.$date.'" class="btn btn-success">予約する</a></p>';
 
             $week .= '</td>';
 
