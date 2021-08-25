@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\BookingPost;
 
 class AdminController extends Controller
 {
@@ -23,6 +25,32 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $bookingPosts = $this->get_BookingPosts_All();
+
+        return view('admin', [
+            'bookingPosts' => $bookingPosts,
+        ]);
+    }
+
+    /**
+     * 一覧を表示する
+     */
+    public function get_BookingPosts_All()
+    {
+        $bookingPoint = new BookingPost;
+        $result = $bookingPoint->all();
+
+        $data = array();
+
+        foreach( $result as $item ){
+            $data[] = array(
+                'id' => $item->id,
+                'date' => $item->date,
+                'plan' => $item->plan,
+                'count' => $bookingPoint->get_guestCounter_by_id($item->id),
+            );
+        }
+
+        return $data;
     }
 }

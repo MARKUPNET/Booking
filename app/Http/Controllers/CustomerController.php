@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BookingPost;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class BookingPostController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class BookingPostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BookingPost  $bookingPost
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(BookingPost $bookingPost)
+    public function show(Customer $customer)
     {
         //
     }
@@ -52,10 +52,10 @@ class BookingPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BookingPost  $bookingPost
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookingPost $bookingPost)
+    public function edit(Customer $customer)
     {
         //
     }
@@ -64,10 +64,10 @@ class BookingPostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BookingPost  $bookingPost
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookingPost $bookingPost)
+    public function update(Request $request, Customer $customer)
     {
         //
     }
@@ -75,12 +75,11 @@ class BookingPostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BookingPost  $bookingPost
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookingPost $bookingPost)
+    public function destroy(Customer $customer)
     {
         //
     }
-
 }

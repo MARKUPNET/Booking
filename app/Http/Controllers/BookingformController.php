@@ -25,11 +25,7 @@ class BookingformController extends Controller
 
         //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
         $request->validate([
-            'name' => 'required',
             'email' => 'required|email',
-            'zip'  => 'required',
-            'pref'  => 'required',
-            'address'  => 'required',
         ]);
 
         //フォームから受け取ったすべてのinputの値を取得
@@ -46,11 +42,11 @@ class BookingformController extends Controller
 
         //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
         $request->validate([
-            'name' => 'required',
+            // 'name' => 'required',
             'email' => 'required|email',
-            'zip'  => 'required',
-            'pref'  => 'required',
-            'address'  => 'required',
+            // 'zip'  => 'required',
+            // 'pref'  => 'required',
+            // 'address'  => 'required',
         ]);
 
         //フォームから受け取ったactionの値を取得
@@ -68,35 +64,7 @@ class BookingformController extends Controller
         } else {
             //DBに保存
             $post = new BookingPost;
-            $post->date = $entry['date'];
-            $post->plan = $entry['plan'];
-
-            //guest
-            $guestArray = array(
-              'woman' => $entry['woman'],
-              'man' => $entry['man'],
-              'childwoman' => $entry['childwoman'],
-              'childman' => $entry['childman'],
-            );
-            $post->guest = serialize($guestArray);
-
-            //option
-            $optionArray = array(
-              'option1' => $entry['option1'],
-            );
-            $post->option = serialize($optionArray);
-
-            //customer
-            $customerArray = array(
-              'name' => $entry['name'],
-              'email' => $entry['email'],
-              'zip' => $entry['zip'],
-              'pref' => $entry['pref'],
-              'address' => $entry['address'],
-            );
-            $post->customer = serialize($customerArray);
-
-            $post->save();
+            $post->put_BookingData_All($entry);
 
             //入力されたメールアドレスにメールを送信
             \Mail::to($entry['email'])->send(new BookingFormSendmail($entry));
